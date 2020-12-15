@@ -1,7 +1,8 @@
 const refs = {
     startBtn: document.querySelector('button[data-action="start"'),
     stopBtn: document.querySelector('button[data-action="stop"'),
-},colors = [
+},
+    colors = [
         '#FFFFFF',
         '#2196F3',
         '#4CAF50',

@@ -25,7 +25,7 @@ setRandomColor = () => {
 
 };
 
-let interval = undefined;
+let interval = null;
 
 // refs.startBtn.addEventListener('click', () => interval = interval ?
 //     interval :
@@ -38,8 +38,17 @@ let interval = undefined;
 //     setInterval(() => setRandomColor(), 1000)));
   
 
-refs.startBtn.addEventListener('click', () => interval = interval ? interval : setInterval(() => setRandomColor(), 1000));
-refs.stopBtn.addEventListener('click', () => clearInterval(interval));
+refs.startBtn.addEventListener('click', () => {
+  refs.startBtn.disabled = true;
+  interval = interval ? interval : setInterval(() => setRandomColor(), 1000);
+
+  refs.stopBtn.addEventListener('click', () => {
+      refs.startBtn.disabled = false;
+      clearInterval(interval);
+      interval = null;
+  });
+});
+
     
 
 
